@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="300.0" spacing="10.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.expensetracker.BudgetManagementController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <Label text="Manage Budgets">
+        <font>
+            <Font name="System Bold" size="18.0" />
+        </font>
+        <textFill>
+            <Color blue="0.6" green="0.4" red="0.2" />
+        </textFill>
+    </Label>
+    <HBox alignment="CENTER_LEFT" spacing="10.0">
+        <Label text="Category:">
+            <font>
+                <Font size="12.0" />
+            </font>
+        </Label>
+        <ComboBox fx:id="categoryComboBox" prefWidth="150.0" HBox.hgrow="ALWAYS" />
+    </HBox>
+    <HBox alignment="CENTER_LEFT" spacing="10.0">
+        <Label text="Budget Amount:">
+            <font>
+                <Font size="12.0" />
+            </font>
+        </Label>
+        <TextField fx:id="budgetAmountField" HBox.hgrow="ALWAYS" />
+    </HBox>
+    <HBox alignment="CENTER_LEFT" spacing="10.0">
+        <Label text="Period:">
+            <font>
+                <Font size="12.0" />
+            </font>
+        </Label>
+        <ComboBox fx:id="periodComboBox" prefWidth="150.0" HBox.hgrow="ALWAYS" />
+    </HBox>
+    <HBox alignment="CENTER" spacing="10.0">
+        <Button fx:id="addButton" onAction="#handleAddBudget" prefWidth="80.0" text="Add" />
+        <Button fx:id="updateButton" onAction="#handleUpdateBudget" prefWidth="80.0" text="Update" />
+        <Button fx:id="deleteButton" onAction="#handleDeleteBudget" prefWidth="80.0" text="Delete" />
+    </HBox>
+    <ListView fx:id="budgetListView" VBox.vgrow="ALWAYS" />
+</VBox>

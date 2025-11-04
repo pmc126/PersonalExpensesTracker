@@ -1,0 +1,6 @@
+default_user,Food,"#FF0000",food_icon
+default_user,Transport,"#00FF00",transport_icon
+default_user,School,"#0000FF",school_icon
+default_user,Utilities,"#FFA500",utilities_icon
+default_user,Entertainment,"#800080",entertainment_icon
+default_user,Health,"#00CED1",health_icon

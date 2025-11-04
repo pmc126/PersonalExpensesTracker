@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="500.0" minWidth="800.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.expensetracker.ExpenseTrackerController" stylesheets="/application/corporate-theme.css">
+    <left>
+        <VBox prefWidth="300.0" spacing="15.0" style="-fx-background-color: #f7f7f7; -fx-padding: 20;" BorderPane.alignment="CENTER">
+            <children>
+                <Label style="-fx-font-weight: bold; -fx-text-fill: #333;" text="💸 Record New Expense">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Separator prefWidth="200.0" />
+
+                <Label text="Amount (K):" />
+                <TextField fx:id="amountField" promptText="e.g., 50.00" />
+
+                <Label text="Category:" />
+                <ComboBox fx:id="categoryComboBox" prefWidth="280.0" promptText="Select Category" />
+
+                <Label text="Date:" />
+                <DatePicker fx:id="datePicker" prefWidth="280.0" />
+
+                <Label text="Description (Optional):" />
+                <TextArea fx:id="descriptionArea" prefHeight="80.0" promptText="e.g., Dinner at Intercontinental Hotel" />
+
+                <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveExpense" prefHeight="40.0" prefWidth="280.0" style="-fx-background-color: #007bff; -fx-text-fill: white; -fx-font-weight: bold;" text="➕ Save Expense" />
+            </children>
+        </VBox>
+    </left>
+    <center>
+        <VBox spacing="10.0" style="-fx-padding: 20;" BorderPane.alignment="CENTER">
+            <children>
+                <Label style="-fx-font-weight: bold; -fx-text-fill: #333;" text="📖 All Expenses">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <HBox spacing="10.0" alignment="CENTER_LEFT">
+                    <children>
+                        <DatePicker fx:id="startDatePicker" promptText="Start Date" />
+                        <DatePicker fx:id="endDatePicker" promptText="End Date" />
+                        <ComboBox fx:id="filterCategoryComboBox" prefWidth="150.0" promptText="Filter by Category" />
+                        <Button onAction="#filterExpenses" text="Filter" />
+                        <Button onAction="#deleteExpense" text="Delete Expense" />
+                        <Button onAction="#handleEditExpense" text="Edit Expense" />
+                        <Button onAction="#handleManageCategories" text="Manage Categories" />
+                        <Button onAction="#handleGenerateReport" text="Generate Report" />
+                        <Button onAction="#handleImportExpenses" text="Import Expenses" />
+                        <Button onAction="#handleExportExpenses" text="Export Expenses" />
+                        <Button onAction="#handleManageBudgets" text="Manage Budgets" />
+                        <Button onAction="#handleManageRecurringExpenses" text="Manage Recurring Expenses" />
+                    </children>
+                </HBox>
+                <HBox spacing="10.0" alignment="CENTER_LEFT">
+                    <children>
+                        <TextField fx:id="searchField" promptText="Search description or category" HBox.hgrow="ALWAYS" />
+                        <Button onAction="#handleSearchExpenses" text="Search" />
+                    </children>
+                </HBox>
+                <TableView fx:id="expenseTable" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="dateColumn" prefWidth="100.0" text="Date" />
+                        <TableColumn fx:id="categoryColumn" prefWidth="120.0" text="Category" />
+                        <TableColumn fx:id="amountColumn" prefWidth="100.0" text="Amount" />
+                        <TableColumn fx:id="descriptionColumn" prefWidth="250.0" text="Description" />
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                </TableView>
+            </children>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" prefHeight="50.0" style="-fx-background-color: #e9ecef; -fx-padding: 10;" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="totalSpentLabel" style="-fx-font-weight: bold; -fx-font-size: 16; -fx-text-fill: #dc3545;" text="Total Spent: K 0.00" />
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.expensetracker.ReportViewController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <Label text="Expense Report by Category">
+        <font>
+            <Font name="System Bold" size="18.0" />
+        </font>
+    </Label>
+    <TableView fx:id="reportTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="categoryColumn" prefWidth="200.0" text="Category" />
+            <TableColumn fx:id="totalAmountColumn" prefWidth="150.0" text="Total Amount" />
+            <TableColumn fx:id="percentageColumn" prefWidth="150.0" text="Percentage" />
+        </columns>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+        </columnResizePolicy>
+    </TableView>
+    <Label fx:id="grandTotalLabel" text="Grand Total: K 0.00">
+        <font>
+            <Font name="System Bold" size="14.0" />
+        </font>
+    </Label>
+</VBox>
